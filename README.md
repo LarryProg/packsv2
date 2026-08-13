@@ -4,7 +4,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 
 ## Archivos
 
-- `index.html` — página principal: pestañas **Packs** (elegí cuál abrir) y **Casos de Éxito** (playlist de Spotify, videos en el estudio, bonus gratis).
+- `index.html` — página principal: pestañas **Packs** (elegí cuál abrir) y **Casos de Éxito** (playlist de Spotify, casos reales con testimonio en video y audio antes/después, videos en el estudio, bonus gratis).
 - `PACK PRODUCCIÓN COMPLETA @larry.prod.html` — 300€
 - `PACK PRODUCCIÓN DE EP @larry.prod.html` — 250€ / canción
 - `PACK BEATMAKING @larry.prod.html` — 200€
@@ -12,8 +12,10 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK MASTER POR STEMS @larry.prod.html` — 50€
 - `PACK TOP GLOBAL @larry.prod Ft. Fede Ceballos (Barcelona).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Jhonny 90s (Madrid).html` — 425€ (con estudio)
+- `PACK TOP GLOBAL @larry.prod Ft. Yisus (Zaragoza).html` — 400€ (con estudio)
+- `media/` — clips de audio "antes/después" que usan los reproductores de la sección Casos de Éxito (los videos pesados están en Vimeo, embebidos por iframe).
 
-Todos los archivos tienen que quedar juntos en la misma carpeta — `index.html` enlaza a cada pack por su nombre de archivo.
+Todos los archivos tienen que quedar juntos en la misma carpeta — `index.html` enlaza a cada pack por su nombre de archivo, y a los audios de `media/`.
 
 ## Ver en local
 
