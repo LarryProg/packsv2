@@ -13,6 +13,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK TOP GLOBAL @larry.prod Ft. Fede Ceballos (Barcelona).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Jhonny 90s (Madrid).html` — 425€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Yisus (Zaragoza).html` — 400€ (con estudio)
+- `PACK TOP GLOBAL @larry.prod Ft. David (Elche).html` — 400€ (con estudio, David · The Lost Productions)
 - `media/` — clips de audio "antes/después" que usan los reproductores de la sección Casos de Éxito (los videos pesados están en Vimeo, embebidos por iframe).
 
 Todos los archivos tienen que quedar juntos en la misma carpeta — `index.html` enlaza a cada pack por su nombre de archivo, y a los audios de `media/`.
