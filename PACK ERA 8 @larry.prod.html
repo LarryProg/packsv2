@@ -372,14 +372,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-famil
         <button type="button" class="on" data-mode="online">Online</button>
         <button type="button" data-mode="estudio">Con estudio</button>
       </div>
-      <div class="cuota"><span id="cuotaV">300€</span><small>/mes</small></div>
-      <div class="cuota-sub">12 cuotas sin interés</div>
-      <div class="cuota-total" id="cuotaT">Total 3.600€ · 450€ por canción</div>
+      <div class="cuota"><span id="cuotaV">≈325€</span><small>/mes</small></div>
+      <div class="cuota-sub">Financiable en 12 meses con PayPal</div>
+      <div class="cuota-total" id="cuotaT">Precio 3.600€ · 450€ por canción</div>
       <div class="cuota-rule"></div>
       <div class="cuota-notes">
         <b>8 canciones</b> · estrategia de <b>18 meses</b><br>
         Con estudio: +100€ por canción<br>
-        Videoclips no incluidos
+        Videoclips no incluidos<br>
+        <span style="font-size:11px;color:var(--muted-2)">Cuota aprox. con TAE 16 %. La exacta la ves al pagar con PayPal.</span>
       </div>
     </div>
 
@@ -498,8 +499,8 @@ function revealDiscount(){
 
 (function(){
   var M = {
-    online:  { q:'300€', t:'Total 3.600€ · 450€ por canción' },
-    estudio: { q:'366,67€', t:'Total 4.400€ · 550€ por canción (con estudio)' }
+    online:  { q:'≈325€', t:'Precio 3.600€ · 450€ por canción' },
+    estudio: { q:'≈397€', t:'Precio 4.400€ · 550€ por canción (con estudio)' }
   };
   document.querySelectorAll('.mode-toggle button').forEach(function(b){
     b.addEventListener('click', function(){
