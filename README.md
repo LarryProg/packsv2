@@ -9,6 +9,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK PRODUCCIÓN DE EP @larry.prod.html` — 250€ / canción
 - `PACK ERA 6 @larry.prod.html` — 6 canciones · 12 meses de estrategia · 450€/canción (550€ con estudio), incluye composición de coros, financiable en 12 meses con PayPal (TAE ~16 %)
 - `PACK ERA 8 @larry.prod.html` — 8 canciones · 18 meses de estrategia · 450€/canción (550€ con estudio), incluye composición de coros, financiable en 12 meses con PayPal (TAE ~16 %)
+- `PACK ERA - Cuenta Principal @larry.prod.html` — estrategia de la cuenta principal del artista ERA (7 videos/semana); linkeada desde los packs ERA
 - `PACK BEATMAKING @larry.prod.html` — 200€
 - `PACK MIX & MASTER @larry.prod.html` — 150€
 - `PACK MASTER POR STEMS @larry.prod.html` — 50€

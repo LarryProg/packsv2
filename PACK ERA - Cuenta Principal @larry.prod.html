@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Cuenta Principal · ERA · Larry Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --accent:#c4c4cd;
+  --bg:#0a0a0b;
+  --surface:#161618;
+  --surface-2:#1d1d20;
+  --surface-3:#26262a;
+  --line:#2a2a2e;
+  --text:#f4f4f5;
+  --muted:#9a9aa2;
+  --muted-2:#6c6c74;
+  /* un tono por pilar: conexión más claro, publicidad más oscuro */
+  --p-viral:#f4f4f5;
+  --p-simp:#d6d6dc;
+  --p-cerc:#b4b4bc;
+  --p-promo:#8e8e98;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.5}
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:50;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1120px;margin:0 auto;padding:56px 24px 96px}
+@media (max-width:640px){.wrap{padding:36px 16px 72px}}
+
+/* ---------- Header ---------- */
+.back{display:block;margin-bottom:22px;font-size:13px;font-weight:700;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--text)}
+.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
+h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(40px,7vw,76px);line-height:1;letter-spacing:1px;text-transform:uppercase;margin-top:18px}
+h1 .accent{color:var(--accent)}
+.lead{font-size:17px;color:var(--muted);max-width:640px;margin-top:16px}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;min-width:140px}
+.stat b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:34px;color:var(--accent);line-height:1.05}
+.stat span{font-size:12px;color:var(--muted)}
+
+/* ---------- Secciones ---------- */
+section{margin-top:72px}
+.sec-label{font-family:'Anton',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted-2)}
+h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,4vw,40px);text-transform:uppercase;letter-spacing:.5px;margin-top:6px;line-height:1.1}
+.sec-sub{color:var(--muted);margin-top:8px;max-width:680px}
+
+/* ---------- Semana tipo ---------- */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:28px}
+@media (max-width:900px){.week{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.week{grid-template-columns:1fr}}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 14px;border-top:4px solid var(--c);display:flex;flex-direction:column;gap:8px;min-height:170px}
+.day .dname{font-family:'Anton',sans-serif;font-size:22px;letter-spacing:1px;color:var(--c)}
+.day .pill{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:999px;color:var(--bg);background:var(--c)}
+.day h4{font-size:14px;font-weight:700;line-height:1.3}
+.day p{font-size:12.5px;color:var(--muted)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:12.5px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px;vertical-align:-1px}
+
+/* ---------- Pilares ---------- */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+@media (max-width:900px){.pillars{grid-template-columns:1fr}}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 22px;position:relative;overflow:hidden}
+.pillar::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--c)}
+.pillar .ico{font-size:28px}
+.pillar h3{font-family:'Anton',sans-serif;font-weight:400;font-size:26px;text-transform:uppercase;letter-spacing:.5px;margin-top:8px;color:var(--c)}
+.pillar .goal{font-size:14px;color:var(--text);margin-top:6px;font-weight:600}
+.pillar .k{font-size:10.5px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted-2);margin-top:18px}
+.pillar p,.pillar li{font-size:13.5px;color:var(--muted)}
+.pillar ul{list-style:none;margin-top:6px}
+.pillar li{padding:7px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.pillar li:last-child{border-bottom:none}
+.hook{color:var(--text)!important;font-style:italic}
+.metric{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--bg);background:var(--c);border-radius:999px;padding:3px 10px}
+.warn{margin-top:14px;font-size:12.5px;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+
+/* ---------- Publicidad (toggle por etapa) ---------- */
+.toggle{display:inline-flex;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px;margin-top:24px;flex-wrap:wrap}
+.toggle button{border:none;background:transparent;color:var(--muted);font-family:inherit;font-weight:800;font-size:13px;padding:10px 18px;border-radius:999px;cursor:pointer;transition:.15s}
+.toggle button.on{background:var(--accent);color:var(--bg)}
+.promo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+@media (max-width:900px){.promo-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.promo-grid{grid-template-columns:1fr}}
+.promo{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px 18px}
+.promo .tag{font-size:10.5px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted-2)}
+.promo h4{font-size:16px;margin-top:6px}
+.promo p{font-size:13px;color:var(--muted);margin-top:6px}
+.promo .when{margin-top:12px;font-size:11.5px;font-weight:700;color:var(--accent)}
+
+/* ---------- Timeline de lanzamiento ---------- */
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px;position:relative}
+@media (max-width:800px){.tl{grid-template-columns:1fr}}
+.tl-step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+.tl-step .t{font-family:'Anton',sans-serif;font-size:22px;color:var(--accent);letter-spacing:.5px}
+.tl-step h4{font-size:15px;margin-top:4px}
+.tl-step ul{list-style:none;margin-top:10px}
+.tl-step li{font-size:13px;color:var(--muted);padding:5px 0 5px 16px;position:relative}
+.tl-step li::before{content:"→";position:absolute;left:0;color:var(--muted-2)}
+.tl-step.hot{border-color:var(--accent);background:linear-gradient(160deg,rgba(196,196,205,.10),var(--surface))}
+
+/* ---------- Producción ---------- */
+.prod{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:28px}
+@media (max-width:860px){.prod{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px 22px}
+.box h3{font-family:'Anton',sans-serif;font-weight:400;font-size:24px;text-transform:uppercase;letter-spacing:.5px}
+.box .freq{font-size:12px;font-weight:700;color:var(--muted-2);letter-spacing:1px;text-transform:uppercase;margin-top:2px}
+.box .out{font-size:13px;color:var(--muted);margin-top:8px}
+.check{list-style:none;margin-top:14px}
+.check li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.08);font-size:13.5px;color:var(--muted);cursor:pointer;user-select:none}
+.check li:last-child{border-bottom:none}
+.check input{appearance:none;flex:none;width:18px;height:18px;border:1.5px solid var(--muted-2);border-radius:5px;margin-top:1px;cursor:pointer;display:grid;place-content:center}
+.check input:checked{background:var(--accent);border-color:var(--accent)}
+.check input:checked::after{content:"✓";color:var(--bg);font-size:12px;font-weight:900}
+.check li.done span{text-decoration:line-through;color:var(--muted-2)}
+.check b{color:var(--text);font-weight:700}
+.reset{margin-top:12px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:7px 14px;font-family:inherit;font-size:12px;cursor:pointer}
+.reset:hover{border-color:var(--accent);color:var(--text)}
+
+/* ---------- Mes tipo ---------- */
+.month{width:100%;border-collapse:separate;border-spacing:0;margin-top:28px;font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.month th,.month td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
+.month th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted-2);background:var(--surface-2)}
+.month tr:last-child td{border-bottom:none}
+.month td:not(:first-child),.month th:not(:first-child){text-align:center}
+.month .tot td{font-weight:800;color:var(--accent);background:var(--surface-2)}
+.month td i{display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--c);margin-right:8px}
+.table-scroll{overflow-x:auto}
+
+/* ---------- Fandom ---------- */
+.callout{margin-top:28px;background:linear-gradient(135deg,rgba(196,196,205,.12),var(--surface));border:1px solid var(--accent);border-radius:18px;padding:24px}
+.callout h3{font-family:'Anton',sans-serif;font-weight:400;font-size:24px;text-transform:uppercase}
+.callout p{color:var(--muted);margin-top:8px;font-size:14px;max-width:760px}
+
+footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--muted-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <a class="back" href="index.html">← Ver los packs</a>
+    <span class="eyebrow">Pack ERA · Estrategia de la cuenta principal</span>
+    <h1>Tu cuenta, <span class="accent">7 videos por semana</span></h1>
+    <p class="lead">3 videos para que te conozcan, te quieran y se sientan parte. 4 videos para que escuchen la canción. Uno por día, toda la era.</p>
+    <div class="stats">
+      <div class="stat"><b>7</b><span>videos por semana</span></div>
+      <div class="stat"><b>3</b><span>de conexión</span></div>
+      <div class="stat"><b>4</b><span>de publicidad directa</span></div>
+      <div class="stat"><b>28</b><span>videos por mes</span></div>
+    </div>
+  </header>
+
+  <!-- SEMANA TIPO -->
+  <section>
+    <div class="sec-label">01 · Semana tipo</div>
+    <h2>Un video por día</h2>
+    <p class="sec-sub">Conexión y publicidad se alternan para que tu perfil nunca parezca un catálogo de anuncios. Los viernes van con publicidad porque es el día en que salen los lanzamientos.</p>
+    <div class="week">
+      <div class="day" style="--c:var(--p-viral)"><div class="dname">LUN</div><span class="pill">Conexión</span><h4>🧲 Viral de atracción</h4><p>Llegar a gente que todavía no te sigue.</p></div>
+      <div class="day" style="--c:var(--p-promo)"><div class="dname">MAR</div><span class="pill">Publicidad</span><h4>📣 Playback / videoclip #1</h4><p>Que escuchen la canción.</p></div>
+      <div class="day" style="--c:var(--p-simp)"><div class="dname">MIÉ</div><span class="pill">Conexión</span><h4>😊 Simpatía</h4><p>Que les caigas bien como persona.</p></div>
+      <div class="day" style="--c:var(--p-promo)"><div class="dname">JUE</div><span class="pill">Publicidad</span><h4>🎬 Detrás de escena</h4><p>Del videoclip o del estudio.</p></div>
+      <div class="day" style="--c:var(--p-promo)"><div class="dname">VIE</div><span class="pill">Publicidad</span><h4>📣 Playback / videoclip #2</h4><p>Empujar la canción el día de los lanzamientos.</p></div>
+      <div class="day" style="--c:var(--p-cerc)"><div class="dname">SÁB</div><span class="pill">Conexión</span><h4>🤝 Cercanía</h4><p>El momento "no pegado" como conexión.</p></div>
+      <div class="day" style="--c:var(--p-promo)"><div class="dname">DOM</div><span class="pill">Publicidad</span><h4>🎥 Detrás del playback</h4><p>Crudo, tomas falladas, el equipo.</p></div>
+    </div>
+    <div class="legend">
+      <span style="--c:var(--p-viral)"><i></i>Viral</span>
+      <span style="--c:var(--p-simp)"><i></i>Simpatía</span>
+      <span style="--c:var(--p-cerc)"><i></i>Cercanía</span>
+      <span style="--c:var(--p-promo)"><i></i>Publicidad directa</span>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section>
+    <div class="sec-label">02 · Los 3 pilares de conexión</div>
+    <h2>Que te conozcan, te quieran y se queden</h2>
+    <div class="pillars">
+      <div class="pillar" style="--c:var(--p-viral)">
+        <div class="ico">🧲</div>
+        <h3>Viral de atracción</h3>
+        <div class="goal">Llegar a gente que no te conoce. La canción va de fondo, no hace falta hablar de ella.</div>
+        <div class="k">Formatos</div>
+        <p>Opinión fuerte sobre tu género, cosas que solo entiende un artista independiente, una tendencia llevada a tu estilo, comparaciones, retos.</p>
+        <div class="k">Ganchos de ejemplo</div>
+        <ul>
+          <li class="hook">"Nadie te dice esto cuando empezás a hacer música…"</li>
+          <li class="hook">"3 cosas que hacen que una canción suene amateur"</li>
+          <li class="hook">"Mi primera canción vs la última. No me juzguen."</li>
+        </ul>
+        <div class="k">Qué mirar</div>
+        <span class="metric">Compartidos</span>
+        <div class="warn">El gancho tiene que estar en el primer segundo. Si no frena el dedo, no importa lo que venga después.</div>
+      </div>
+
+      <div class="pillar" style="--c:var(--p-simp)">
+        <div class="ico">😊</div>
+        <h3>Simpatía</h3>
+        <div class="goal">Que conozcan a la persona y no solo al artista.</div>
+        <div class="k">Formatos</div>
+        <p>Humor, opiniones, hobbies, un día con vos, responder comentarios con video, mostrar tu barrio y tu gente.</p>
+        <div class="k">Ganchos de ejemplo</div>
+        <ul>
+          <li class="hook">"Respondiendo sus comentarios más random"</li>
+          <li class="hook">"Un día conmigo cuando no estoy en el estudio"</li>
+          <li class="hook">"Mi opinión impopular sobre ___"</li>
+        </ul>
+        <div class="k">Qué mirar</div>
+        <span class="metric">Comentarios + seguidores</span>
+        <div class="warn">Tu personalidad real, no un personaje. La gente sigue a personas.</div>
+      </div>
+
+      <div class="pillar" style="--c:var(--p-cerc)">
+        <div class="ico">🤝</div>
+        <h3>Cercanía</h3>
+        <div class="goal">Usar que todavía no sos famoso a tu favor: la gente quiere estar desde el principio.</div>
+        <div class="k">Formatos</div>
+        <p>Tus números reales, los rechazos, tu trabajo de día, lo que invertís en tu música, el camino tal como es.</p>
+        <div class="k">Ganchos de ejemplo</div>
+        <ul>
+          <li class="hook">"Tengo 400 oyentes mensuales y esto es todo lo que hago para crecer"</li>
+          <li class="hook">"Lo que me costó sacar esta canción, en plata y en horas"</li>
+          <li class="hook">"Si estás viendo esto, sos de los primeros. Gracias."</li>
+        </ul>
+        <div class="k">Qué mirar</div>
+        <span class="metric">Guardados + mensajes</span>
+        <div class="warn">Tono de proceso y hambre, nunca de víctima. Este pilar es el que arma el fandom duro.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICIDAD -->
+  <section>
+    <div class="sec-label">03 · Los 4 de publicidad directa</div>
+    <h2>Que escuchen la canción</h2>
+    <p class="sec-sub">El videoclip aparece recién en la segunda mitad de la era, así que el contenido de publicidad cambia según la etapa.</p>
+    <div class="toggle" role="tablist">
+      <button type="button" class="on" data-stage="singles">Meses 1–6 · Singles</button>
+      <button type="button" data-stage="clips">Meses 7–12 · Videoclips</button>
+    </div>
+    <div class="promo-grid" id="promoGrid"></div>
+  </section>
+
+  <!-- LANZAMIENTO -->
+  <section>
+    <div class="sec-label">04 · Alrededor de cada lanzamiento</div>
+    <h2>Cómo se mueve la semana</h2>
+    <p class="sec-sub">Los 3 pilares de conexión siguen siempre. Lo que cambia es el mensaje de los 4 de publicidad.</p>
+    <div class="tl">
+      <div class="tl-step">
+        <div class="t">−2 semanas</div>
+        <h4>Calentar</h4>
+        <ul>
+          <li>Publicidad = teasers y adelantos de 5–10 segundos</li>
+          <li>Link de pre-save en la bio y en cada caption</li>
+          <li>Cercanía: "estoy por sacar algo que me cambió"</li>
+        </ul>
+      </div>
+      <div class="tl-step hot">
+        <div class="t">Semana de salida</div>
+        <h4>Todo a la canción</h4>
+        <ul>
+          <li>Los 4 de publicidad apuntan a "ya disponible"</li>
+          <li>Cercanía: qué significa esta canción para vos</li>
+          <li>Responder todos los comentarios el primer día</li>
+        </ul>
+      </div>
+      <div class="tl-step">
+        <div class="t">Semanas siguientes</div>
+        <h4>Que no muera</h4>
+        <ul>
+          <li>Se mezcla el single nuevo con los anteriores</li>
+          <li>Repetir en otro formato lo que mejor funcionó</li>
+          <li>Videos de la gente usando el sonido, si aparecen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCCIÓN -->
+  <section>
+    <div class="sec-label">05 · Cómo se produce</div>
+    <h2>Grabar poco, publicar todos los días</h2>
+    <p class="sec-sub">Todo se graba en dos momentos. Andá marcando lo que ya está hecho: queda guardado en este navegador.</p>
+    <div class="prod">
+      <div class="box">
+        <h3>🎬 Día de grabación</h3>
+        <div class="freq">1 por canción · 1 por mes</div>
+        <div class="out">Con un día salen los 8 videos de promo del mes y, si alguien filma todo el día, también los 8 detrás de escena.</div>
+        <ul class="check" data-list="rodaje">
+          <li><input type="checkbox"><span><b>Playback A</b> · lugar 1, outfit 1, canción completa</span></li>
+          <li><input type="checkbox"><span><b>Playback B</b> · lugar 1, outfit 2, solo estribillo</span></li>
+          <li><input type="checkbox"><span><b>Playback C</b> · lugar 2, outfit 1, cámara en mano</span></li>
+          <li><input type="checkbox"><span><b>Playback D</b> · lugar 2, outfit 2, plano detalle (boca, manos)</span></li>
+          <li><input type="checkbox"><span><b>Detrás de escena continuo</b> · alguien filma todo con el celular</span></li>
+          <li><input type="checkbox"><span><b>Tomas falladas y risas</b> · no cortar cuando sale mal</span></li>
+          <li><input type="checkbox"><span><b>Reacción</b> · vos viendo la toma buena en la pantalla</span></li>
+          <li><input type="checkbox"><span><b>Fotos</b> · para portada, historias y las cuentas fandom</span></li>
+        </ul>
+        <button class="reset" type="button" data-reset="rodaje">Reiniciar para la próxima canción</button>
+      </div>
+      <div class="box">
+        <h3>📱 Sesión semanal</h3>
+        <div class="freq">1 por semana · 30–45 min</div>
+        <div class="out">Con el celular, en casa o en la calle. Los guiones te los paso antes.</div>
+        <ul class="check" data-list="semana">
+          <li><input type="checkbox"><span><b>Viral</b> · el gancho grabado 2–3 veces con distintas caras</span></li>
+          <li><input type="checkbox"><span><b>Simpatía</b> · hablando a cámara, natural</span></li>
+          <li><input type="checkbox"><span><b>Cercanía</b> · con algún dato real (números, plata, horas)</span></li>
+          <li><input type="checkbox"><span><b>Bonus</b> · 2–3 clips cortos para historias</span></li>
+        </ul>
+        <button class="reset" type="button" data-reset="semana">Reiniciar semana</button>
+        <div class="warn" style="margin-top:18px"><b style="color:var(--text)">Lo que te mando cada mes:</b> 4 ideas virales con gancho, 4 de simpatía, 4 de cercanía, la lista de tomas del día de grabación y el calendario.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MES TIPO -->
+  <section>
+    <div class="sec-label">06 · Mes tipo</div>
+    <h2>28 videos al mes</h2>
+    <div class="table-scroll">
+      <table class="month">
+        <thead><tr><th>Pilar</th><th>Sem 1</th><th>Sem 2</th><th>Sem 3</th><th>Sem 4</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td style="--c:var(--p-viral)"><i></i>🧲 Viral</td><td>1</td><td>1</td><td>1</td><td>1</td><td>4</td></tr>
+          <tr><td style="--c:var(--p-simp)"><i></i>😊 Simpatía</td><td>1</td><td>1</td><td>1</td><td>1</td><td>4</td></tr>
+          <tr><td style="--c:var(--p-cerc)"><i></i>🤝 Cercanía</td><td>1</td><td>1</td><td>1</td><td>1</td><td>4</td></tr>
+          <tr><td style="--c:var(--p-promo)"><i></i>📣 Playback / videoclip</td><td>2</td><td>2</td><td>2</td><td>2</td><td>8</td></tr>
+          <tr><td style="--c:var(--p-promo)"><i></i>🎬 Detrás de escena</td><td>2</td><td>2</td><td>2</td><td>2</td><td>8</td></tr>
+          <tr class="tot"><td>Total</td><td>7</td><td>7</td><td>7</td><td>7</td><td>28</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FANDOM -->
+  <section>
+    <div class="callout">
+      <h3>Y las cuentas fandom hacen el resto</h3>
+      <p>Mientras tu cuenta publica 1 video por día, las 3 cuentas fandom publican otros 3 con pedacitos de tus canciones. Los mejores playbacks y detrás de escena de tu cuenta también alimentan las fandom, así lo que grabás rinde el doble.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Larry Producer · Pack ERA</span>
+    <span>@larry.prod</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var STAGES = {
+    singles: [
+      { tag:'Martes', t:'📣 Playback #1', p:'El gancho de la canción, en un lugar con onda. Texto en pantalla con la frase más fuerte.', w:'Del día de grabación' },
+      { tag:'Jueves', t:'🎬 Detrás de escena en el estudio', p:'Grabando la canción conmigo: la toma, el momento en que suena bien, las caras.', w:'De la sesión de estudio' },
+      { tag:'Viernes', t:'📣 Playback #2', p:'Otro lugar, otro outfit u otra parte de la canción. Llamado a escucharla o al pre-save.', w:'Del día de grabación' },
+      { tag:'Domingo', t:'🎥 Detrás del playback', p:'Tomas falladas, risas, el equipo, cómo se armó la escena.', w:'Del día de grabación' }
+    ],
+    clips: [
+      { tag:'Martes', t:'📣 Corte del videoclip #1', p:'El estribillo con el mejor plano. Texto en pantalla con la frase más fuerte.', w:'Del videoclip' },
+      { tag:'Jueves', t:'🎬 Detrás de escena del rodaje', p:'La preparación, el equipo, cómo se logró la toma más difícil.', w:'Del día de rodaje' },
+      { tag:'Viernes', t:'📣 Corte del videoclip #2', p:'Otro momento del clip. Llamado a ver el videoclip completo en YouTube.', w:'Del videoclip' },
+      { tag:'Domingo', t:'🎥 Detrás del playback del rodaje', p:'Tomas falladas y momentos crudos del día del videoclip.', w:'Del día de rodaje' }
+    ]
+  };
+  var grid = document.getElementById('promoGrid');
+  function render(stage){
+    grid.innerHTML = STAGES[stage].map(function(x){
+      return '<div class="promo"><div class="tag">'+x.tag+'</div><h4>'+x.t+'</h4><p>'+x.p+'</p><div class="when">'+x.w+'</div></div>';
+    }).join('');
+  }
+  document.querySelectorAll('.toggle button').forEach(function(b){
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.toggle button').forEach(function(x){ x.classList.toggle('on', x === b); });
+      render(b.dataset.stage);
+    });
+  });
+  render('singles');
+
+  // Checklists: se guardan en este navegador (si el storage no está disponible, funcionan igual sin guardar)
+  var KEY = 'larry_era_cuenta_principal_v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) {}
+  function save(){ try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e) {} }
+
+  document.querySelectorAll('.check').forEach(function(list){
+    var name = list.dataset.list;
+    var items = list.querySelectorAll('li');
+    items.forEach(function(li, i){
+      var cb = li.querySelector('input');
+      cb.checked = !!(state[name] && state[name][i]);
+      li.classList.toggle('done', cb.checked);
+      li.addEventListener('click', function(e){
+        if (e.target !== cb) cb.checked = !cb.checked;
+        li.classList.toggle('done', cb.checked);
+        state[name] = state[name] || {};
+        state[name][i] = cb.checked;
+        save();
+      });
+    });
+  });
+  document.querySelectorAll('[data-reset]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.dataset.reset;
+      state[name] = {};
+      save();
+      document.querySelectorAll('.check[data-list="'+name+'"] li').forEach(function(li){
+        li.querySelector('input').checked = false;
+        li.classList.remove('done');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
