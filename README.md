@@ -7,6 +7,8 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `index.html` — página principal: pestañas **Packs** (elegí cuál abrir) y **Casos de Éxito** (playlist de Spotify, casos reales con testimonio en video y audio antes/después, videos en el estudio, bonus gratis).
 - `PACK PRODUCCIÓN COMPLETA @larry.prod.html` — 300€
 - `PACK PRODUCCIÓN DE EP @larry.prod.html` — 250€ / canción
+- `PACK ERA 6 @larry.prod.html` — 6 canciones · 12 meses de estrategia · 400€/canción (500€ con estudio), 12 cuotas
+- `PACK ERA 8 @larry.prod.html` — 8 canciones · 18 meses de estrategia · 400€/canción (500€ con estudio), 12 cuotas
 - `PACK BEATMAKING @larry.prod.html` — 200€
 - `PACK MIX & MASTER @larry.prod.html` — 150€
 - `PACK MASTER POR STEMS @larry.prod.html` — 50€
