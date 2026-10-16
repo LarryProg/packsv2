@@ -124,6 +124,20 @@ h2{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(28px,4vw,40px)
 .reset{margin-top:12px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:7px 14px;font-family:inherit;font-size:12px;cursor:pointer}
 .reset:hover{border-color:var(--accent);color:var(--text)}
 
+/* ---------- Historias ---------- */
+.free-badge{display:inline-block;margin-top:14px;font-size:12px;font-weight:800;letter-spacing:.5px;color:var(--bg);background:var(--accent);border-radius:999px;padding:5px 12px}
+.ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+@media (max-width:860px){.ideas{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.ideas{grid-template-columns:1fr}}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.idea b{display:block;font-size:14px}
+.idea span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+.rules{list-style:none;margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+.rules li{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-size:13.5px;color:var(--muted)}
+.rules li b{display:block;color:var(--text);font-size:14.5px;margin-bottom:4px}
+.sub-h{font-family:'Anton',sans-serif;font-weight:400;font-size:22px;text-transform:uppercase;letter-spacing:.5px;margin-top:40px}
+
 /* ---------- Mes tipo ---------- */
 .month{width:100%;border-collapse:separate;border-spacing:0;margin-top:28px;font-size:13.5px;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .month th,.month td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line)}
@@ -324,9 +338,89 @@ footer{margin-top:80px;padding-top:24px;border-top:1px solid var(--line);font-si
     </div>
   </section>
 
+  <!-- HISTORIAS -->
+  <section>
+    <div class="sec-label">06 · Historias</div>
+    <h2>Historias: tu espacio libre</h2>
+    <p class="sec-sub">Los reels traen gente nueva. Las historias son para los que ya te siguen, y ahí es donde se vuelven fans. Acá no hay calendario: estas son las reglas del juego, el contenido lo decidís vos.</p>
+    <span class="free-badge">Sin calendario fijo · vos elegís qué subir</span>
+
+    <div class="pillars">
+      <div class="pillar" style="--c:var(--p-viral)">
+        <div class="ico">👀</div>
+        <h3>Presencia</h3>
+        <div class="goal">Que te vean todos los días.</div>
+        <p style="margin-top:10px">Instagram le muestra primero tus historias a quien las mira seguido. Si desaparecés una semana, te olvida y tus seguidores también.</p>
+      </div>
+      <div class="pillar" style="--c:var(--p-simp)">
+        <div class="ico">💬</div>
+        <h3>Conversación</h3>
+        <div class="goal">Que te respondan.</div>
+        <p style="margin-top:10px">Encuestas, preguntas y mensajes. Cada respuesta te acerca a esa persona y hace que Instagram te muestre más a ella, también en los reels.</p>
+      </div>
+      <div class="pillar" style="--c:var(--p-cerc)">
+        <div class="ico">🎧</div>
+        <h3>Empuje</h3>
+        <div class="goal">Llevar a escuchar la canción.</div>
+        <p style="margin-top:10px">Links, cuenta regresiva y pre-save. Es el único lugar donde un link se toca con un dedo, así que acá se convierte la atención en escuchas.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">Ideas para cuando no sabés qué subir</h3>
+    <div class="ideas">
+      <div class="idea"><b>📍 Tu día real</b><span>Dónde estás, qué comés, con quién estás. Lo simple funciona.</span></div>
+      <div class="idea"><b>🎙️ El proceso</b><span>Una letra en las notas del celular, una maqueta sonando en el auto, el estudio.</span></div>
+      <div class="idea"><b>🗳️ Encuestas</b><span>"¿Cuál de estas dos frases va en el estribillo?" Que sientan que deciden con vos.</span></div>
+      <div class="idea"><b>❓ Caja de preguntas</b><span>Respondé con video, a cámara. Las mejores respuestas pueden ser un reel.</span></div>
+      <div class="idea"><b>🔁 Repostear a tu gente</b><span>Todo el que comparta o use tu canción merece un repost. Así otros también lo hacen.</span></div>
+      <div class="idea"><b>🤫 Adelantos exclusivos</b><span>10 segundos de algo que todavía no salió, solo para los que miran tus historias.</span></div>
+    </div>
+
+    <h3 class="sub-h">Las reglas del juego</h3>
+    <ul class="rules">
+      <li><b>Algo todos los días</b>Aunque sea una sola. Mejor 3 historias todos los días que 15 de golpe y después nada.</li>
+      <li><b>Una historia, una idea</b>Texto corto, que se lea en 2 segundos. Si hay que leer mucho, se pasa de largo.</li>
+      <li><b>Tu cara antes que un texto</b>Hablarle a la cámara conecta mucho más que letras sobre un fondo negro.</li>
+      <li><b>Dejá una puerta abierta</b>Siempre que puedas, poné una encuesta, una pregunta o el slider de emoji para que te respondan.</li>
+      <li><b>Respondé los mensajes</b>Cada mensaje que te llega por una historia es un fan en potencia. Contestá, aunque sea con un audio.</li>
+      <li><b>No todo es pedir</b>Más o menos 1 de cada 4 o 5 historias pide algo (escuchar, pre-save). El resto es vos.</li>
+    </ul>
+
+    <h3 class="sub-h">Cuando sale una canción</h3>
+    <div class="tl">
+      <div class="tl-step">
+        <div class="t">−7 días</div>
+        <h4>Cuenta regresiva</h4>
+        <ul>
+          <li>Sticker de cuenta regresiva: quien lo activa recibe un aviso el día de salida</li>
+          <li>Link de pre-save</li>
+          <li>Pedacitos de la canción, sin mostrar todo</li>
+        </ul>
+      </div>
+      <div class="tl-step hot">
+        <div class="t">Día de salida</div>
+        <h4>Todo a la canción</h4>
+        <ul>
+          <li>Link para escucharla en todas las historias del día</li>
+          <li>Tu reacción real: estás sacando música</li>
+          <li>Repost de todos los que la compartan</li>
+        </ul>
+      </div>
+      <div class="tl-step">
+        <div class="t">Después</div>
+        <h4>Que quede a mano</h4>
+        <ul>
+          <li>Una historia destacada por canción, con el link</li>
+          <li>Seguir reposteando a quien la use</li>
+          <li>Preguntar cuál es su parte favorita</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- MES TIPO -->
   <section>
-    <div class="sec-label">06 · Mes tipo</div>
+    <div class="sec-label">07 · Mes tipo</div>
     <h2>28 videos al mes</h2>
     <div class="table-scroll">
       <table class="month">
