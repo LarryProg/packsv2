@@ -15,7 +15,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK MASTER POR STEMS @larry.prod.html` — 50€
 - `PACK TOP GLOBAL @larry.prod Ft. Fede Ceballos (Barcelona).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Jhonny 90s (Madrid).html` — 425€ (con estudio)
-- `PACK TOP GLOBAL @larry.prod Ft. Yisus (Zaragoza).html` — 400€ (con estudio)
+- `PACK TOP GLOBAL @larry.prod Ft. Yisus (Zaragoza).html` — 400€ (con estudio; zonas: Zaragoza, Málaga, Granada, Cádiz y Alicante)
 - `PACK TOP GLOBAL @larry.prod Ft. David (Elche).html` — 400€ (con estudio, David · The Lost Productions)
 - `PACK TOP GLOBAL @larry.prod Ft. Danilo (Islas Canarias).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Llorlellas (Galicia).html` — 400€ (con estudio)
