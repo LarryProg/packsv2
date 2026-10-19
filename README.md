@@ -5,6 +5,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 ## Archivos
 
 - `index.html` — página principal: pestañas **Packs** (elegí cuál abrir) y **Casos de Éxito** (playlist de Spotify, casos reales con testimonio en video y audio antes/después, videos en el estudio, bonus gratis).
+- `CASO ELIAS @larry.prod.html` — página suelta del caso Elías (antes/después con reproductor A/B, demo → portada final) para mandar en cualificación; todo embebido
 - `PACK PRODUCCIÓN COMPLETA @larry.prod.html` — 300€
 - `PACK PRODUCCIÓN DE EP @larry.prod.html` — 250€ / canción
 - `PACK ERA 6 @larry.prod.html` — 6 canciones · 12 meses de estrategia · 450€/canción (550€ con estudio), incluye composición de coros, financiable en 12 meses con PayPal (TAE ~16 %)
