@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>¿Por qué trabajo online? — Larry Producer</title>
+<meta name="description" content="Un video de 2 minutos sobre cómo trabajo a distancia con artistas y por qué funciona mejor.">
+
+<!-- Vista previa al compartir el link -->
+<meta property="og:type" content="video.other">
+<meta property="og:site_name" content="Larry Producer">
+<meta property="og:title" content="¿Por qué trabajo online? — Larry">
+<meta property="og:description" content="Video de 2 min: cómo trabajo a distancia con artistas y por qué funciona mejor.">
+<meta property="og:url" content="https://larryprog.github.io/packsv2/online/">
+<meta property="og:image" content="https://larryprog.github.io/packsv2/online/og.jpg">
+<meta property="og:image:secure_url" content="https://larryprog.github.io/packsv2/online/og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:video" content="https://larryprog.github.io/packsv2/online/video.mp4">
+<meta property="og:video:secure_url" content="https://larryprog.github.io/packsv2/online/video.mp4">
+<meta property="og:video:type" content="video/mp4">
+<meta property="og:video:width" content="1080">
+<meta property="og:video:height" content="1920">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="¿Por qué trabajo online? — Larry">
+<meta name="twitter:image" content="https://larryprog.github.io/packsv2/online/og.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: dark;
+  --accent:#c4c4cd;
+  --bg:#0a0a0b;
+  --surface:#161618;
+  --line:#2a2a2e;
+  --text:#f4f4f5;
+  --muted:#9a9aa2;
+  --muted-2:#6c6c74;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;background:var(--bg);font-family:'Inter',system-ui,sans-serif;color:var(--text)}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:44px 16px 64px;position:relative;overflow-x:hidden}
+.nebula{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;width:100%;max-width:560px;display:flex;flex-direction:column;align-items:center}
+#main-logo{display:block;height:90px;width:auto;filter:drop-shadow(0 6px 26px rgba(0,0,0,.7))}
+.eyebrow{margin-top:18px;font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:6px 16px;border-radius:999px}
+h1{margin-top:22px;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(38px,9vw,58px);letter-spacing:1px;line-height:1.02;text-transform:uppercase;text-align:center}
+h1 .accent{color:var(--accent)}
+.sub{margin-top:12px;font-size:16px;line-height:1.55;color:var(--muted);text-align:center;max-width:440px}
+
+.player{position:relative;margin-top:28px;width:100%;max-width:400px;aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 24px 60px -24px rgba(0,0,0,.95)}
+.player video{width:100%;height:100%;display:block;object-fit:cover;background:#000}
+.cover{position:absolute;inset:0;border:0;cursor:pointer;background:transparent;display:grid;place-items:center}
+.cover::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.55))}
+.cover .btn{position:relative;width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.93);display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.6);transition:transform .15s ease}
+.cover:hover .btn{transform:scale(1.06)}
+.cover svg{width:34px;height:34px;margin-left:5px}
+.cover .len{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff}
+.cover[hidden]{display:none}
+
+.note{margin-top:28px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px 22px;font-size:15px;line-height:1.6;color:var(--text);text-align:center}
+.note b{color:var(--accent)}
+.foot{position:relative;z-index:1;margin-top:56px;font-size:11px;letter-spacing:2px;color:var(--muted-2);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="nebula" style="left:-200px;top:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(196,196,205,.09),transparent 70%);"></div>
+<div class="nebula" style="right:-250px;top:300px;width:800px;height:800px;background:radial-gradient(circle,rgba(196,196,205,.07),transparent 70%);"></div>
+
+<main class="wrap">
+  <img id="main-logo" src="logo.png" alt="Larry Producer">
+  <span class="eyebrow">Video · 2 min</span>
+  <h1>¿Por qué trabajo <span class="accent">online</span>?</h1>
+  <p class="sub">Cómo trabajo a distancia con artistas, y por qué el resultado es mejor que encerrarnos un día en el estudio.</p>
+
+  <div class="player">
+    <video id="v" src="video.mp4" poster="poster.jpg" playsinline preload="metadata" controls></video>
+    <button class="cover" id="cover" type="button" aria-label="Reproducir video">
+      <span class="btn"><svg viewBox="0 0 24 24" fill="#0a0a0b"><path d="M7 4.5v15l13-7.5z"/></svg></span>
+      <span class="len">▶ Dale play · con sonido</span>
+    </button>
+  </div>
+
+  <p class="note">Si te quedó alguna duda, <b>respondeme por donde venimos hablando</b> y lo vemos.</p>
+</main>
+
+<p class="foot">LARRY · LA MÚSICA SIEMPRE ES EL FIN</p>
+
+<script>
+(function(){
+  var v = document.getElementById('v'), cover = document.getElementById('cover');
+  cover.addEventListener('click', function(){ cover.hidden = true; v.play(); });
+  v.addEventListener('play', function(){ cover.hidden = true; });
+})();
+</script>
+</body>
+</html>
