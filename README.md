@@ -22,6 +22,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK TOP GLOBAL @larry.prod Ft. Llorlellas (Galicia).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Javi Skullboy (Valencia).html` — 400€ (con estudio)
 - `PACK TOP GLOBAL @larry.prod Ft. Javichu (Lorca).html` — 400€ (con estudio, Javi · Javichu, Murcia)
+- `PACK TOP GLOBAL @larry.prod Ft. Jotage (Toledo).html` — 425€ (con estudio)
 - `media/` — clips de audio "antes/después" que usan los reproductores de la sección Casos de Éxito (los videos pesados están en Vimeo, embebidos por iframe).
 
 Todos los archivos tienen que quedar juntos en la misma carpeta — `index.html` enlaza a cada pack por su nombre de archivo, y a los audios de `media/`.
