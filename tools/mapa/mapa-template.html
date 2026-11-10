@@ -150,7 +150,7 @@ svg.yisus .zone{opacity:1 !important;stroke-width:2} svg.has-active:not(.yisus) 
   <header>
     <img id="logo" src="__LOGO__" alt="Larry Producer">
     <span class="eyebrow">Red Top Global</span>
-    <h1><span class="num" id="count">0</span> estudios en toda España</h1>
+    <h1><span class="num" id="count">0</span> estudios · <span class="num" id="cities">0</span> ciudades</h1>
     <p class="sub">Producción online conmigo desde Mallorca, y grabación en el estudio socio más cercano a vos. Tocá un punto para ver el pack.</p>
   </header>
 
@@ -336,8 +336,15 @@ order.forEach((s, i) => {
 setTimeout(() => zoneEls.forEach((e, i) => setTimeout(() => e.classList.add('go'), i * 120)), 1300 + D.studios.length * 140 + 900);
 
 // Contador
-const total = D.studios.length, cEl = document.getElementById('count');
-let c = 0; const ci = setInterval(() => { cEl.textContent = ++c; if (c >= total) clearInterval(ci); }, 1400 / total);
+// Estudios = socios + zonas que cubre Yisus; ciudades = ciudades distintas
+const zonesAll = D.studios.flatMap(s => s.zones || []);
+const total = D.studios.length + zonesAll.length;
+const cities = new Set([...D.studios.map(s => s.city), ...zonesAll.map(z => z.n)]).size;
+function countUp(id, n) {
+  const e = document.getElementById(id); let c = 0;
+  const iv = setInterval(() => { e.textContent = ++c; if (c >= n) clearInterval(iv); }, 1400 / n);
+}
+countUp('count', total); countUp('cities', cities);
 
 // Cielo estrellado
 const cv = document.getElementById('stars'), cx = cv.getContext('2d');
