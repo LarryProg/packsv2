@@ -70,9 +70,15 @@ svg#map{display:block;width:100%;height:auto}
 .st .hit{fill:transparent}
 .st text{font-size:calc(12.5px * var(--k,1));font-weight:800;letter-spacing:1.2px;text-transform:uppercase;fill:#e6e6ea;paint-order:stroke;stroke:#0a0a0b;stroke-width:calc(4px * var(--k,1));stroke-linejoin:round;pointer-events:none}
 .st text.who{font-size:calc(10.5px * var(--k,1));font-weight:600;letter-spacing:.4px;text-transform:none;fill:var(--muted)}
-.zone{fill:none;stroke:rgba(196,196,205,.55);stroke-width:1.2;stroke-dasharray:2 3;opacity:.0;transition:opacity .3s}
-.zone-dot{fill:#0a0a0b;stroke:var(--accent);stroke-width:1.4;opacity:.45;transition:opacity .3s}
-.zone-label{font-size:calc(10px * var(--k,1));font-weight:700;letter-spacing:1px;text-transform:uppercase;fill:var(--muted);paint-order:stroke;stroke:#0a0a0b;stroke-width:3px;opacity:0;transition:opacity .3s}
+.zone{fill:none;stroke:rgba(255,255,255,.7);stroke-width:1.3;stroke-dasharray:3 4;opacity:0;transition:opacity .3s,stroke-width .3s}
+.zone.go{animation:zoneIn .6s ease forwards}
+@keyframes zoneIn{to{opacity:.55}}
+.zn{cursor:pointer;opacity:0;transition:opacity .3s}
+.zn.go{animation:fade .5s ease forwards}
+.zone-dot{fill:rgba(10,10,11,.75);stroke:#fff;stroke-width:calc(1.8px * var(--k,1))}
+.zone-ring{fill:none;stroke:#fff;stroke-width:calc(1.6px * var(--k,1));stroke-dasharray:3 3;transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+.zone-label{font-size:calc(10px * var(--k,1));font-weight:700;letter-spacing:1px;text-transform:uppercase;fill:#e6e6ea;paint-order:stroke;stroke:#0a0a0b;stroke-width:calc(4px * var(--k,1));stroke-linejoin:round;pointer-events:none}
+.zone-label.who{font-size:calc(10px * var(--k,1));font-weight:600;letter-spacing:.4px;text-transform:none;fill:var(--muted)}
 
 /* Larry */
 .home{opacity:0;animation:fade .6s ease .9s forwards}
@@ -89,7 +95,7 @@ svg.has-active .flow:not(.active){opacity:.08}
 .arc.active{stroke:#fff;stroke-width:2}
 .flow.active{opacity:1;stroke-width:3}
 .st.active .core{fill:#fff}
-svg.yisus .zone{opacity:1} svg.yisus .zone-dot{opacity:1} svg.yisus .zone-label{opacity:1}
+svg.yisus .zone{opacity:1 !important;stroke-width:2} svg.has-active:not(.yisus) .zone, svg.has-active:not(.yisus) .zn{opacity:.25 !important}
 
 /* Ficha */
 .tip{position:absolute;z-index:3;width:250px;padding:16px 16px 14px;background:rgba(22,22,24,.94);border:1px solid #3a3a40;border-radius:16px;box-shadow:0 18px 50px rgba(0,0,0,.6);
@@ -158,7 +164,7 @@ svg.yisus .zone{opacity:1} svg.yisus .zone-dot{opacity:1} svg.yisus .zone-label{
       <div id="items"></div>
       <div class="legend">
         <span><i style="background:#fff;box-shadow:0 0 8px #fff"></i>Estudio socio</span>
-        <span><i style="border:1.4px solid var(--accent)"></i>Zona que cubre Yisus</span>
+        <span><i style="border:1.6px solid #fff"></i>Zona que también cubre Yisus</span>
       </div>
     </aside>
   </div>
@@ -216,11 +222,33 @@ const side = SMALL
   : { jotage: 'left', cray: 'left', javichu: 'left', charly: 'below', fede: 'left', danilo: 'right' };
 
 const yisus = D.studios.find(s => s.zones);
+const zoneEls = [];
 if (yisus) yisus.zones.forEach(z => {
-  el('path', { d: `M${yisus.x},${yisus.y} L${z.x},${z.y}`, class: 'zone' }, gZ);
-  el('circle', { cx: z.x, cy: z.y, r: 5, class: 'zone-dot' }, gZ);
-  el('text', { x: z.x + 9 * K, y: z.y + 14 * K, class: 'zone-label' }, gZ).textContent = z.n;
+  zoneEls.push(el('path', { d: `M${yisus.x},${yisus.y} L${z.x},${z.y}`, class: 'zone' }, gZ));
 });
+// Los puntos de zona van arriba de las líneas (se agregan después de los estudios)
+function drawZones() {
+  if (!yisus) return;
+  const gZD = el('g');
+  yisus.zones.forEach(z => {
+    // ¿Ya hay un estudio en esa ciudad? (Málaga = Charly) → anillo alrededor y etiqueta a la izquierda
+    const shared = D.studios.some(s => s !== yisus && Math.hypot(s.x - z.x, s.y - z.y) < 4);
+    const g = el('g', { class: 'zn', tabindex: 0, role: 'button', 'aria-label': `Yisus, zona ${z.n}` }, gZD);
+    if (shared) {
+      el('circle', { cx: z.x, cy: z.y, r: 12 * Math.sqrt(K), class: 'zone-ring' }, g);
+      el('text', { x: z.x - 16 * K, y: z.y + 4 * K, 'text-anchor': 'end', class: 'zone-label who' }, g).textContent = '+ Yisus';
+    } else {
+      el('circle', { cx: z.x, cy: z.y, r: 5.5 * Math.sqrt(K), class: 'zone-dot' }, g);
+      el('text', { x: z.x + 12 * K, y: z.y + 4 * K, class: 'zone-label' }, g).textContent = z.n;
+      if (!SMALL) el('text', { x: z.x + 12 * K, y: z.y + 18 * K, class: 'zone-label who' }, g).textContent = 'Yisus';
+    }
+    el('circle', { cx: z.x, cy: z.y, r: 20 * K, fill: 'transparent' }, g);
+    g.addEventListener('mouseenter', () => activate('yisus'));
+    g.addEventListener('mouseleave', () => scheduleClear());
+    g.addEventListener('click', e => { e.stopPropagation(); activate('yisus'); });
+    zoneEls.push(g);
+  });
+}
 
 const nodes = {};
 D.studios.forEach(s => {
@@ -248,6 +276,8 @@ D.studios.forEach(s => {
   g.addEventListener('keydown', e => { if (e.key === 'Enter') location.href = encodeURI(s.pack); });
 });
 
+drawZones();
+
 // Larry en Mallorca
 const gH = el('g', { class: 'home' });
 el('circle', { cx: H.x, cy: H.y, r: 46, class: 'halo' }, gH);
@@ -257,14 +287,16 @@ if (!SMALL) el('text', { x: H.x, y: H.y + 30, 'text-anchor': 'middle', class: 's
 
 // Lista
 const items = document.getElementById('items');
-D.studios.slice().sort((a, b) => a.city.localeCompare(b.city, 'es')).forEach((s, i) => {
+const rows = D.studios.map(s => ({ s, city: s.city, who: s.name }));
+if (yisus) yisus.zones.forEach(z => rows.push({ s: yisus, city: z.n, who: 'Yisus · también cubre esta zona', zone: true }));
+rows.sort((a, b) => a.city.localeCompare(b.city, 'es') || (a.zone ? 1 : -1)).forEach(({ s, city, who, zone }, i) => {
   const a = document.createElement('a');
   a.className = 'item'; a.href = encodeURI(s.pack);
-  a.innerHTML = `<span class="dot"></span><span class="t"><div class="n">${s.city}</div><div class="c">${s.name}</div></span><span class="p">${s.price}€</span>`;
+  a.innerHTML = `<span class="dot"${zone ? ' style="background:transparent;border:1.6px solid #fff"' : ''}></span><span class="t"><div class="n">${city}</div><div class="c">${who}</div></span><span class="p">${s.price}€</span>`;
   a.addEventListener('mouseenter', () => activate(s.id));
   a.addEventListener('mouseleave', () => scheduleClear());
   a.style.animationDelay = `${1.8 + i * .06}s`;
-  items.appendChild(a); nodes[s.id].item = a;
+  items.appendChild(a); if (!zone) nodes[s.id].item = a;
   requestAnimationFrame(() => a.classList.add('go'));
 });
 
@@ -301,6 +333,8 @@ order.forEach((s, i) => {
   setTimeout(() => n.arc.classList.add('go'), t);
   setTimeout(() => { n.g.classList.add('go'); n.flow.classList.add('go'); }, t + 900);
 });
+setTimeout(() => zoneEls.forEach((e, i) => setTimeout(() => e.classList.add('go'), i * 120)), 1300 + D.studios.length * 140 + 900);
+
 // Contador
 const total = D.studios.length, cEl = document.getElementById('count');
 let c = 0; const ci = setInterval(() => { cEl.textContent = ++c; if (c >= total) clearInterval(ci); }, 1400 / total);
