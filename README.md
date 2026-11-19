@@ -26,6 +26,7 @@ Selector de packs (`index.html`) + los flujos de venta que se abren desde ahí. 
 - `PACK TOP GLOBAL @larry.prod Ft. Cray Ldr (Sevilla).html` — 400€ (con estudio)
 - `MAPA ESTUDIOS @larry.prod.html` — mapa animado de España con todos los estudios socios (para sumar un estudio: agregarlo en `tools/mapa/build-mapa.mjs`, `npm i` en esa carpeta y `node build-mapa.mjs`)
 - `media/` — clips de audio "antes/después" que usan los reproductores de la sección Casos de Éxito (los videos pesados están en Vimeo, embebidos por iframe).
+- `movil/` — versión vertical para celular de cada pack (mismo nombre de archivo), para mandarle el link al cliente. Se genera con `node tools/movil/build-movil.mjs`: volver a correrlo cada vez que se cambie o se sume un pack.
 
 Todos los archivos tienen que quedar juntos en la misma carpeta — `index.html` enlaza a cada pack por su nombre de archivo, y a los audios de `media/`.
 
