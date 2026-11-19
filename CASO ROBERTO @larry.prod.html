@@ -182,6 +182,17 @@ h1 .accent{color:var(--red)}
 <script>
 (function(){
   var tracks = { antes: document.getElementById('a-antes'), despues: document.getElementById('a-despues') };
+  // Carga cada audio entero en memoria: así se puede adelantar aunque el servidor no permita saltos.
+  Object.keys(tracks).forEach(function(k){
+    var el = tracks[k], src = el.getAttribute('src');
+    if (!src || !window.fetch || location.protocol === 'file:') return;
+    fetch(src).then(function(r){ return r.ok ? r.blob() : null; }).then(function(b){
+      if (!b) return;
+      var t = el.currentTime, was = !el.paused;
+      el.src = URL.createObjectURL(b);
+      el.addEventListener('loadedmetadata', function once(){ el.removeEventListener('loadedmetadata', once); try { el.currentTime = t; } catch(e) {} if (was) el.play(); });
+    }).catch(function(){});
+  });
   var names = { antes: 'Antes', despues: 'Después' };
   var cur = 'antes', playing = false;
   var playBtn = document.getElementById('play'), ico = document.getElementById('ico');
