@@ -123,6 +123,11 @@ h1 .accent{color:var(--red)}
 .vid{position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:9/16;background:#000;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 14px 30px -18px rgba(0,0,0,.9)}
 .vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .said{margin:20px auto 0;max-width:460px;font-size:15px;line-height:1.55;color:var(--muted);text-align:center;font-style:italic}
+.ab-title{font-family:'Anton',sans-serif;font-weight:400;font-size:20px;letter-spacing:.8px;text-transform:uppercase;margin-top:6px}
+.ab-desc{margin:4px 0 14px;font-size:13px;color:var(--muted)}
+.card.ab + .ab-title{margin-top:30px}
+.spoti{width:100%;border-radius:14px;overflow:hidden}
+.spoti iframe{display:block;width:100%;height:352px;border:0}
 </style>
 </head>
 <body>
@@ -144,7 +149,7 @@ h1 .accent{color:var(--red)}
     </div>
   </header>
 
-  <p class="quote">Roberto llegó recomendado por Guso, buscando un productor que se comprometiera con un proyecto muy especial. Partimos de una demo de voz y la convertimos en «Quédate», su nuevo single.</p>
+  <p class="quote">Roberto llegó recomendado, buscando un productor que se comprometiera con un proyecto muy especial y que entendiera su visión. Partimos de una idea con una demo de voz y la convertimos en «Quédate», su nuevo single.</p>
 
   <section class="section">
     <div class="section-label">Lo que dice Roberto</div>
@@ -154,25 +159,55 @@ h1 .accent{color:var(--red)}
 
   <section class="section">
     <div class="section-label">Escuchá el antes y el después</div>
-    <div class="card">
+    <h3 class="ab-title">El comienzo</h3>
+    <p class="ab-desc">Primera estrofa y estribillo.</p>
+    <div class="card ab" data-ab="inicio">
       <div class="ab-switch" role="group" aria-label="Versión">
         <button class="ab-btn" type="button" data-v="antes" aria-pressed="true"><strong>Antes</strong><span>La demo de voz con la que llegó</span></button>
         <button class="ab-btn" type="button" data-v="despues" aria-pressed="false"><strong>Después</strong><span>«Quédate», masterizada</span></button>
       </div>
       <div class="player">
-        <button class="play" id="play" type="button" aria-label="Reproducir">
-          <svg id="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>
+        <button class="play" type="button" aria-label="Reproducir">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>
         </button>
         <div class="track">
-          <div class="bar" id="bar"><div class="bar-fill" id="fill"></div><div class="bar-knob" id="knob"></div></div>
-          <div class="times"><span id="cur">0:00</span><span id="dur">1:00</span></div>
+          <div class="bar"><div class="bar-fill"></div><div class="bar-knob"></div></div>
+          <div class="times"><span class="cur">0:00</span><span class="dur">1:00</span></div>
         </div>
       </div>
-      <p class="now">Sonando: <b id="label">Antes</b></p>
-      <p class="hint">Cambiá entre Antes y Después mientras suena: sigue desde el mismo punto.<br>Mejor con auriculares.</p>
-      <audio id="a-antes" preload="auto" src="media/roberto-antes.mp3"></audio>
-      <audio id="a-despues" preload="auto" src="media/roberto-despues.mp3"></audio>
+      <p class="now">Sonando: <b class="label">Antes</b></p>
+      <audio data-v="antes" preload="auto" src="media/roberto-antes.mp3"></audio>
+      <audio data-v="despues" preload="auto" src="media/roberto-despues.mp3"></audio>
     </div>
+
+    <h3 class="ab-title">El final, con la banda</h3>
+    <p class="ab-desc">Último estribillo y la banda a pleno hasta el cierre.</p>
+    <div class="card ab" data-ab="final">
+      <div class="ab-switch" role="group" aria-label="Versión">
+        <button class="ab-btn" type="button" data-v="antes" aria-pressed="true"><strong>Antes</strong><span>La demo de voz con la que llegó</span></button>
+        <button class="ab-btn" type="button" data-v="despues" aria-pressed="false"><strong>Después</strong><span>«Quédate», masterizada</span></button>
+      </div>
+      <div class="player">
+        <button class="play" type="button" aria-label="Reproducir">
+          <svg class="ico" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>
+        </button>
+        <div class="track">
+          <div class="bar"><div class="bar-fill"></div><div class="bar-knob"></div></div>
+          <div class="times"><span class="cur">0:00</span><span class="dur">1:00</span></div>
+        </div>
+      </div>
+      <p class="now">Sonando: <b class="label">Antes</b></p>
+      <audio data-v="antes" preload="auto" src="media/roberto-final-antes.mp3"></audio>
+      <audio data-v="despues" preload="auto" src="media/roberto-final-despues.mp3"></audio>
+    </div>
+
+    <p class="hint">Cambiá entre Antes y Después mientras suena: sigue desde el mismo punto.<br>Mejor con auriculares.</p>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Escuchala completa</div>
+    <div class="spoti"><iframe src="https://open.spotify.com/embed/album/6bk62v0HGA06oLeB8bA6uC?utm_source=generator&amp;theme=0" title="«Quédate» en Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+    <p class="hint"><a class="ig" href="https://open.spotify.com/album/6bk62v0HGA06oLeB8bA6uC" target="_blank" rel="noopener noreferrer">Abrir en Spotify ↗</a></p>
   </section>
 
 </main>
@@ -181,74 +216,83 @@ h1 .accent{color:var(--red)}
 
 <script>
 (function(){
-  var tracks = { antes: document.getElementById('a-antes'), despues: document.getElementById('a-despues') };
-  // Carga cada audio entero en memoria: así se puede adelantar aunque el servidor no permita saltos.
-  Object.keys(tracks).forEach(function(k){
-    var el = tracks[k], src = el.getAttribute('src');
-    if (!src || !window.fetch || location.protocol === 'file:') return;
-    fetch(src).then(function(r){ return r.ok ? r.blob() : null; }).then(function(b){
-      if (!b) return;
-      var t = el.currentTime, was = !el.paused;
-      el.src = URL.createObjectURL(b);
-      el.addEventListener('loadedmetadata', function once(){ el.removeEventListener('loadedmetadata', once); try { el.currentTime = t; } catch(e) {} if (was) el.play(); });
-    }).catch(function(){});
-  });
-  var names = { antes: 'Antes', despues: 'Después' };
-  var cur = 'antes', playing = false;
-  var playBtn = document.getElementById('play'), ico = document.getElementById('ico');
-  var bar = document.getElementById('bar'), fill = document.getElementById('fill'), knob = document.getElementById('knob');
-  var tCur = document.getElementById('cur'), tDur = document.getElementById('dur'), label = document.getElementById('label');
   var PLAY = '<path d="M7 4.5v15l13-7.5z"/>', PAUSE = '<path d="M6 4h4.5v16H6zM13.5 4H18v16h-4.5z"/>';
-
+  var names = { antes: 'Antes', despues: 'Después' };
+  var players = [];
   function fmt(s){ s = Math.max(0, Math.floor(s || 0)); return Math.floor(s/60) + ':' + ('0' + s % 60).slice(-2); }
-  function a(){ return tracks[cur]; }
-  function render(){
-    var d = a().duration || 0, t = a().currentTime || 0, p = d ? t / d * 100 : 0;
-    fill.style.width = p + '%'; knob.style.left = p + '%';
-    tCur.textContent = fmt(t); if (d) tDur.textContent = fmt(d);
-  }
-  function setPlaying(v){
-    playing = v;
-    ico.innerHTML = v ? PAUSE : PLAY;
-    playBtn.setAttribute('aria-label', v ? 'Pausar' : 'Reproducir');
-  }
-  function play(){ a().play().then(function(){ setPlaying(true); }).catch(function(){ setPlaying(false); }); }
-  function pause(){ a().pause(); setPlaying(false); }
 
-  playBtn.addEventListener('click', function(){ playing ? pause() : play(); });
+  document.querySelectorAll('.card.ab').forEach(function(card){
+    var tracks = {};
+    card.querySelectorAll('audio').forEach(function(el){ tracks[el.dataset.v] = el; });
+    var cur = 'antes', playing = false;
+    var playBtn = card.querySelector('.play'), ico = card.querySelector('.ico');
+    var bar = card.querySelector('.bar'), fill = card.querySelector('.bar-fill'), knob = card.querySelector('.bar-knob');
+    var tCur = card.querySelector('.cur'), tDur = card.querySelector('.dur'), label = card.querySelector('.label');
+    function a(){ return tracks[cur]; }
+    function render(){
+      var d = a().duration || 0, t = a().currentTime || 0, p = d ? t / d * 100 : 0;
+      fill.style.width = p + '%'; knob.style.left = p + '%';
+      tCur.textContent = fmt(t); if (d && isFinite(d)) tDur.textContent = fmt(d);
+    }
+    function setPlaying(v){ playing = v; ico.innerHTML = v ? PAUSE : PLAY; playBtn.setAttribute('aria-label', v ? 'Pausar' : 'Reproducir'); }
+    function play(){
+      players.forEach(function(p){ if (p !== api) p.pause(); });
+      a().play().then(function(){ setPlaying(true); }).catch(function(){ setPlaying(false); });
+    }
+    function pause(){ a().pause(); setPlaying(false); }
+    var api = { pause: pause, toggle: function(){ playing ? pause() : play(); }, isPlaying: function(){ return playing; } };
+    players.push(api);
 
-  document.querySelectorAll('.ab-btn').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var v = btn.dataset.v;
-      if (v === cur) return;
-      var t = a().currentTime, was = playing;
-      a().pause();
-      cur = v;
-      try { a().currentTime = t; } catch(e) {}
-      document.querySelectorAll('.ab-btn').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
-      label.textContent = names[v];
-      if (was) play();
-      render();
+    playBtn.addEventListener('click', api.toggle);
+    card.querySelectorAll('.ab-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var v = btn.dataset.v; if (v === cur) return;
+        var t = a().currentTime, was = playing;
+        a().pause(); cur = v;
+        try { a().currentTime = t; } catch(e) {}
+        card.querySelectorAll('.ab-btn').forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+        label.textContent = names[v];
+        if (was) play();
+        render();
+      });
     });
+    Object.keys(tracks).forEach(function(k){
+      var el = tracks[k];
+      el.addEventListener('timeupdate', function(){ if (k === cur) render(); });
+      el.addEventListener('loadedmetadata', function(){ if (k === cur) render(); });
+      el.addEventListener('ended', function(){ if (k === cur) { setPlaying(false); el.currentTime = 0; render(); } });
+      // Carga el audio entero en memoria: así se puede adelantar aunque el servidor no permita saltos.
+      var src = el.getAttribute('src');
+      if (src && window.fetch && location.protocol !== 'file:') {
+        fetch(src).then(function(r){ return r.ok ? r.blob() : null; }).then(function(b){
+          if (!b) return;
+          var t = el.currentTime, was = !el.paused;
+          el.src = URL.createObjectURL(b);
+          el.addEventListener('loadedmetadata', function once(){ el.removeEventListener('loadedmetadata', once); try { el.currentTime = t; } catch(e) {} if (was) el.play(); });
+        }).catch(function(){});
+      }
+    });
+    function seek(e){
+      var r = bar.getBoundingClientRect(), x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
+      if (a().duration) { a().currentTime = x / r.width * a().duration; render(); }
+    }
+    var dragging = false;
+    bar.addEventListener('pointerdown', function(e){ dragging = true; bar.setPointerCapture(e.pointerId); seek(e); });
+    bar.addEventListener('pointermove', function(e){ if (dragging) seek(e); });
+    bar.addEventListener('pointerup', function(){ dragging = false; });
   });
 
-  Object.keys(tracks).forEach(function(k){
-    tracks[k].addEventListener('timeupdate', function(){ if (k === cur) render(); });
-    tracks[k].addEventListener('loadedmetadata', function(){ if (k === cur) render(); });
-    tracks[k].addEventListener('ended', function(){ if (k === cur) { setPlaying(false); a().currentTime = 0; render(); } });
-  });
-
-  function seek(e){
-    var r = bar.getBoundingClientRect(), x = Math.min(Math.max(e.clientX - r.left, 0), r.width);
-    if (a().duration) { a().currentTime = x / r.width * a().duration; render(); }
-  }
-  var dragging = false;
-  bar.addEventListener('pointerdown', function(e){ dragging = true; bar.setPointerCapture(e.pointerId); seek(e); });
-  bar.addEventListener('pointermove', function(e){ if (dragging) seek(e); });
-  bar.addEventListener('pointerup', function(){ dragging = false; });
+  // El video del testimonio pausa los audios y viceversa.
+  var vid = document.querySelector('.vid video');
+  if (vid) vid.addEventListener('play', function(){ players.forEach(function(p){ p.pause(); }); });
+  document.querySelectorAll('.card.ab audio').forEach(function(el){ el.addEventListener('play', function(){ if (vid) vid.pause(); }); });
 
   document.addEventListener('keydown', function(e){
-    if (e.code === 'Space') { e.preventDefault(); playing ? pause() : play(); }
+    if (e.code === 'Space' && e.target === document.body) {
+      e.preventDefault();
+      var p = players.filter(function(p){ return p.isPlaying(); })[0] || players[0];
+      p && p.toggle();
+    }
   });
 })();
 </script>
